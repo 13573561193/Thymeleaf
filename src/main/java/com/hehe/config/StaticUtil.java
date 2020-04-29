@@ -15,13 +15,13 @@ public class StaticUtil{
     private static final String TEMPLATE_PREFIX = "templates/";
     private static final String TEMPLATE_SUFFIX = ".html";
 
-    public static void makeThymeleaf(String objectName,Object objectValue,String oldFileName,String newFileName){
+    public static void makeThymeleaf(String objectName,Object objectValue, String oldFileName, File file){
         try {
             ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
             resolver.setPrefix(TEMPLATE_PREFIX);
             resolver.setSuffix(TEMPLATE_SUFFIX);
             resolver.setCharacterEncoding("GBK");
-            resolver.setCacheable(false);
+            resolver.setCacheable(true);
             TemplateEngine templateEngine = new TemplateEngine();
             templateEngine.setTemplateResolver(resolver);
 
@@ -31,7 +31,7 @@ public class StaticUtil{
             context.setVariable(objectName,objectValue);
 
             // 渲染模板
-            FileWriter writer = new FileWriter( "d:/S/springboot-helloworld/src/main/resources/templates/"+ newFileName +".html");
+            FileWriter writer = new FileWriter(file);
             templateEngine.process(oldFileName,context,writer);
         } catch (
             IOException e) {

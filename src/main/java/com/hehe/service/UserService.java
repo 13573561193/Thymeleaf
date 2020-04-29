@@ -73,7 +73,7 @@ public class UserService {
     public List<User> testAllUsers() {
         List<User> users = new ArrayList<User>();
 
-        //for(int i = 1 ; i <= 100; i++){
+        for(int i = 1 ; i <= 100; i++){
             User user = new User();
             user.setId(1);
             user.setUsername("蜘蛛侠");
@@ -82,7 +82,7 @@ public class UserService {
             user.setRegisterTime(new Date());
             user.setPopedom(0);
             users.add(user);
-        //}
+        }
         return users;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class UserController {
     private static final String TEMPLATE_PREFIX = "templates/";
     private static final String TEMPLATE_SUFFIX = ".html";
 
-    @RequestMapping("/showOneUser")
+/*    @RequestMapping("/showOneUser")
     public String showOneUser(Model model) {
         User user = userService.findOneUser();
 //        model.addAttribute("userInfo",user);
@@ -51,9 +52,9 @@ public class UserController {
         staticUtil.makeThymeleaf("userInfo",user,"showOneUser","showOneUser_static");
         return "showOneUser_static";
 
-    }
+    }*/
 
-    @RequestMapping("/showAllUsers")
+/*    @RequestMapping("/showAllUsers")
     public String showAllUsers(Model model){
         List<User> usersInfo = userService.findAllUsers();
 //        model.addAttribute("usersInfo",usersInfo);
@@ -62,22 +63,23 @@ public class UserController {
         StaticUtil staticUtil = new StaticUtil();
         staticUtil.makeThymeleaf("usersInfo",usersInfo,"showAllUsers","showAllUsers_static");
         return "showAllUsers_static";
-    }
+    }*/
 
     @RequestMapping("/testThymeleaf")
     public String testThymeleaf(){
         List<User> usersInfo = userService.testAllUsers();
-        //File file = new File("d:\\S\\springboot-helloworld\\src\\main\\resources\\templates\\testThymeleaf_static.html");
-        //long date1 = new Date().getTime();
-        //if(!file.exists()){
+        //文件路径修改为你当前项目所在路径
+        File file = new File("D:\\work\\Thymeleaf\\src\\main\\resources\\templates\\testThymeleaf_static.html");
+        long date1 = new Date().getTime();
+        if(!file.exists()){
             StaticUtil staticUtil = new StaticUtil();
-            staticUtil.makeThymeleaf("usersInfo",usersInfo,"testThymeleaf","testThymeleaf_static");
-        //    long date2 = new Date().getTime();
-        //    System.out.println("静态化过程耗时：" + (date2-date1));
+            staticUtil.makeThymeleaf("usersInfo",usersInfo,"testThymeleaf", file);
+            long date2 = new Date().getTime();
+            System.out.println("数据量：" + usersInfo.size() + "条,静态化过程耗时：" + (date2-date1));
             return "testThymeleaf_static";
-        //}else{
-        //    return "testThymeleaf_static";
-        //}
+        }else{
+            return "testThymeleaf_static";
+        }
 
     }
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 @Controller
 public class ThyController {
 
-    private static final String TEMPLATE_PREFIX = "templates/";
+    /*private static final String TEMPLATE_PREFIX = "templates/";
     private static final String TEMPLATE_SUFFIX = ".html";
     @RequestMapping("/index")
     public String index(){
@@ -45,6 +45,6 @@ public class ThyController {
         }
         return "index_static";
 
-    }
+    }*/
 
 }
