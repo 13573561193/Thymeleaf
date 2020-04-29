@@ -76,9 +76,9 @@ public class UserController {
         List<User> usersInfo = userService.testAllUsers();
         //文件路径修改为你当前项目所在路径
         File file = new File("D:\\work\\Thymeleaf\\src\\main\\resources\\templates\\testThymeleaf_static.html");
-        long date1 = new Date().getTime();
         if(!file.exists()){
             StaticUtil staticUtil = new StaticUtil();
+            long date1 = new Date().getTime();
             staticUtil.makeThymeleaf("usersInfo",usersInfo,"testThymeleaf", file);
             long date2 = new Date().getTime();
             System.out.println("数据量：" + usersInfo.size() + "条,静态化过程耗时：" + (date2-date1));
