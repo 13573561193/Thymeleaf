@@ -65,6 +65,12 @@ public class UserController {
         return "showAllUsers_static";
     }*/
 
+
+    /**
+     * 静态化页面生成速度测试
+     * 数据量在UserService.testAllUsers()方法  修改for循环次数
+     * @return
+     */
     @RequestMapping("/testThymeleaf")
     public String testThymeleaf(){
         List<User> usersInfo = userService.testAllUsers();
